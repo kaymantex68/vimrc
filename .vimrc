@@ -9,8 +9,10 @@ Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'preservim/nerdcommenter'
+Plug 'prettier/vim-prettier'
 call plug#end()
 
+packloadall
 colorscheme onedark
 set background=dark
 set number
@@ -24,7 +26,7 @@ set incsearch
 set listchars=tab:\|\ 
 set list
 set belloff=all
-
+set nowrap
 "mappings
 map <C-n> :NERDTreeToggle <CR>
 
@@ -83,3 +85,24 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+
+nmap <Leader>p <Plug>(Prettier)
+
+let g:prettier#config#print_width = 'auto'
+
+let g:prettier#config#tab_width = 'auto'
+
+let g:prettier#config#use_tabs = 'auto'
+
+let g:prettier#config#parser = ''
+
+let g:prettier#config#config_precedence = 'file-override'
+
+let g:prettier#config#prose_wrap = 'preserve'
+
+let g:prettier#config#html_whitespace_sensitivity = 'css'
+
+let g:prettier#config#require_pragma = 'false'
+
+let g:prettier#config#end_of_line = get(g:, 'prettier#config#end_of_line','lf')
